@@ -128,4 +128,7 @@ img {
   ul {
     flex-direction: column;
   }
+    div.container2 {
+    font-size: 37px;
+  }
 }

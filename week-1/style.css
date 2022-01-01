@@ -145,6 +145,6 @@ img {
   .menu {
     float: right;
     clear: none;
-    max-height: 50px;
+    max-height: 35px;
   }
 }

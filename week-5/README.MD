@@ -14,7 +14,7 @@
 
 - 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，
 由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 
-<img src="https://raw.githubusercontent.com/yin0110/wehelp-assignments/main/week-5/截圖%2022-01-28%下午4.18.53.png">
+<img src="https://raw.githubusercontent.com/yin0110/wehelp-assignments/main/week-5/截圖%202022-01-28%20下午4.18.53.png">
 
 - 使用 SELECT 指令取得欄位 username 是 test 的會員資料。
 **注意** 為了顯示資料有別，會員資料的username跟password有重新刪改過，僅有mike跟john有包含"test", 其他成員皆無

@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+</head>
+
 # WEEK-5 Assignment
 
 ### **要求三:SQL CRUD**

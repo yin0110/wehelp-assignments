@@ -3,6 +3,7 @@
 ### **要求三:SQL CRUD**
 
 - 使用 INSERT 指令新增一筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。接著繼續新增至少 4 筆隨意的資料。
+<img src="https://raw.githubusercontent.com/yin0110/wehelp-assignments/week-5/截圖%202022-01-27%20下午5.30.12.png">
 ![Alt text](https://raw.githubusercontent.com/yin0110/wehelp-assignments/week-5/截圖%202022-01-27%20下午5.30.12.png)
 
 - 使用 SELECT 指令取得所有在 member 資料表中的會員資料。

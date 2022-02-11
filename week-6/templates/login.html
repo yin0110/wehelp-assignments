@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask 登入測試</title>
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
+</head>
+<body>
+    <div class="title">歡迎光臨，請註冊登入系統</div>
+    <div class="login">註冊帳號</div>
+    <div class="putInfo">
+        <form action="{{url_for('signup')}}" method="POST">
+            <label for="name">姓名 </label>
+            <input id="name" type="text" name="name"required><br/>
+            <label for="username">帳號 </label>
+            <input type="text" id="username" name="username" required><br/>
+            <label for="password">密碼 </label>
+            <input type="password" id="password" name="password" required><br/>
+            <button class= button type="submit">註冊</button>
+        </form>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="login">登入系統</div>
+    <div class="putInfo">
+        <form action="{{url_for('signin')}}" method="POST">
+            <label for="id">帳號 </label>
+            <input id="id" type="text" name="username" required /><br/>
+            <label for="password">密碼 </label>
+            <input type="password" id="password" name="password" required /><br/>
+            <button class="button" type="submit">登入</button>
+        </form>
+    </div>
+</body>
+</html>

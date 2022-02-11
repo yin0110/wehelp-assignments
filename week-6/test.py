@@ -6,18 +6,20 @@ from flask import Flask, url_for, redirect, session
 from flask import request
 from flask import render_template
 import mysql.connector
+import yaml
 
 
 # Static file 位置設定
 app = Flask(__name__, static_folder="static", static_url_path="/")
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Back17658@@localhost/users"
 app.secret_key = "2234"  # 設定session的密鑰
+
+db = yaml.safe_load(open('secret.yaml'))
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="qazxsw123",
-    database="users",
-    # cursorclass=mysql.cursors.DictCursor
+    host=db["host"],
+    user=db["user"],
+    password=db["password"],
+    database=db["db"]
 )
 
 cur = mydb.cursor(dictionary=True)
@@ -130,4 +132,4 @@ def signout():
     return redirect("/")
 
 
-app.run(port=5000)
+app.run(port=3000)

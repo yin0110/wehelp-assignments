@@ -36,7 +36,8 @@ def index():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
-    if request.method == "POST" and "username" in request.form and "password" in request.form and "name" in request.form:
+    if request.method == "POST":
+        # and "username" in request.form and "password" in request.form and "name" in request.form:
         name = request.form["name"]
         username = request.form["username"]
         password = request.form["password"]

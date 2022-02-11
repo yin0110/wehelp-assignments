@@ -6,23 +6,21 @@ from flask import Flask, url_for, redirect, session
 from flask import request
 from flask import render_template
 import mysql.connector
-import pymysql
 
 
 # Static file 位置設定
 app = Flask(__name__, static_folder="static", static_url_path="/")
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Back17658@@localhost/users"
 app.secret_key = "2234"  # 設定session的密鑰
-bd_password = os.environ.get('DB_PASSWORD')
-mydb = pymysql.connect(
+mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="qazxsw123",
     database="users",
-    cursorclass=pymysql.cursors.DictCursor
+    # cursorclass=mysql.cursors.DictCursor
 )
 
-cur = mydb.cursor()
+cur = mydb.cursor(dictionary=True)
 
 
 @app.route("/")

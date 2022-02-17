@@ -51,9 +51,6 @@ def signup():
         if account:
             return redirect(url_for('error', message="alreadysigned"))
         else:
-            # sql = "INSERT INTO members(name, username, password) VALUES ('%s', '%s', '%s')"
-            # cur.execute(sql)
-            # cur.execute("INSERT INTO members VALUES (%s, %s, %s)")
             cur.execute("INSERT INTO members(name, username, password) VALUES (%s, %s, %s)",
                         (name, username, password,))
             mydb.commit()
@@ -71,9 +68,6 @@ def signin():
         cur.execute(
             'SELECT name, username, password FROM members WHERE username = %s AND password = %s', (username, password,))
         # 後面(username, password,)轉成tuple
-        # sql = "SELECT * FROM members WHERE (username, password) VALUES (%s, %s)"
-        # val = (username, password,)
-        # cur.execute(sql, val,)
         account = cur.fetchone()
         # fetone 出來的是tuple, 但因為前面有設置游標返回為字典，所以才資料類型才沒有問題，可以用字典方式取出
         if account:
@@ -145,7 +139,6 @@ def signout():
     session.pop("signin", None)
     session.pop("name", None)
     session.pop("username", None)
-    # session["status"] = "未登入"
     return redirect("/")
 
 

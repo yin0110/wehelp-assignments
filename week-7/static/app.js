@@ -5,7 +5,6 @@ function getVal() {
     async function getdata(){
         let data= await fetch(url);
         let dataJson= await data.json();
-    // console.log(dataj)
         let output=dataJson.data["name"]
         let outputUser= dataJson.data["username"]
         // var paragraph=document.createElement("p");

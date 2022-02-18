@@ -4,7 +4,6 @@ from webbrowser import get
 from flask import Flask, url_for, redirect, session, jsonify
 from flask import request
 from flask import render_template
-from flask_restful import Api, Resource
 import mysql.connector
 import yaml
 
@@ -13,7 +12,6 @@ import yaml
 app = Flask(__name__, static_folder="static", static_url_path="/")
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:Back17658@@localhost/users"
 app.secret_key = "2234"  # 設定session的密鑰
-api = Api(app)
 
 db = yaml.safe_load(open('secret.yaml'))
 mydb = mysql.connector.connect(
@@ -79,7 +77,6 @@ def signin():
             return redirect(url_for('error', message="idpasswordwrong"))
     else:
         return render_template("login.html")
-
 # 做這個是因為避免會員直接連到login裡但竟然是登入的，在未登入狀況必須把人轉出來
 
 
@@ -94,21 +91,10 @@ def member():
 
 @ app.route("/member", methods=["GET"])
 def loginok():
-    # if session["status"] == "已登入":
     if "signin" in session and not "":
         name = session["name"]
-        return render_template("loginok.html")+'''
-        <div class="login">
-        恭喜'''+name+'''，成功登入系統<br/>'''+'''
-        <a href="/signout">登出系統</a></div>
-        <div class="login">查詢會員姓名</div>
-        <div class=inquiry>
-        <input type="text" id="getUsername"">
-        <button type="button" onclick="getVal()">查詢</button>
-        </div>
-        <span id="searchUser"></span>
-       
-        '''
+        return render_template("loginok.html", user=name)
+    # 回傳session的變數user給html使用
     else:
         return redirect("/")
 
@@ -120,10 +106,10 @@ def error():
         return render_template("loginblank.html")+'''
         <p>請輸入帳號、密碼</p>
         '''
-    elif message == "blank":
-        return render_template("loginblank.html")+'''
-        <p>請輸入註冊訊息</p>
-        '''
+    # elif message == "blank":
+    #     return render_template("loginblank.html")+'''
+    #     <p>請輸入註冊訊息</p>
+    #     '''
     elif message == "alreadysigned":
         return render_template("loginblank.html")+'''
         <p>帳號已經被註冊</p>

@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask 登入測試</title>
-    <!-- <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" 
-    rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='/style.css')}}">
 </head>
 <body>
     <div class="title">歡迎光臨，這是會員頁面</div>
     <!-- <span id="searchUser"></span> -->
-    
+    <div class="login">{{user}}，歡迎登入系統<br/>
+    <a href="{{url_for('signout')}}">登出系統</a></div>
+    <div class="login">查詢會員姓名</div>
+    <div class=inquiry>
+    <input type="text" id="getUsername"">
+    <button type="button" onclick="getVal()">查詢</button>
+    </div>
+    <span id="searchUser"></span>
 <script src="{{url_for('static', filename='/app.js')}}"></script>
 </body>
 </html>

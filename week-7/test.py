@@ -103,21 +103,20 @@ def loginok():
 def error():
     message = request.args.get("message")
     if message == "idpasswordblank":
-        return render_template("loginblank.html")+'''
-        <p>請輸入帳號、密碼</p>
-        '''
+        messagesToPage = "請輸入帳號、密碼"
+        return render_template("loginblank.html", message=messagesToPage)
     # elif message == "blank":
     #     return render_template("loginblank.html")+'''
     #     <p>請輸入註冊訊息</p>
     #     '''
     elif message == "alreadysigned":
-        return render_template("loginblank.html")+'''
-        <p>帳號已經被註冊</p>
-        '''
+        messagesToPage = "帳號已經被註冊"
+        return render_template("loginblank.html", message=messagesToPage)
+    # 把message直接帶到前端，html用變數接回傳的文字
+
     else:
-        return render_template("loginfail.html")+'''
-        <p>帳號或密碼有誤</p>
-        '''
+        messagesToPage = "帳號或密碼有誤"
+        return render_template("loginblank.html", message=messagesToPage)
 
 
 @ app.route("/signout")
